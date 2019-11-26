@@ -1,0 +1,7 @@
+# Project exclude paths
+/target/
+/SpringMVCdemo.iml
+/src/main/webapp/WEB-INF/lib/
+/.idea/
+/src/main/webapp/WEB-INF/classes/
+/src/main/java/tomcat9x/
