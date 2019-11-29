@@ -1,5 +1,6 @@
 package tt.psc.mvc;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
 
+@Slf4j
 @Controller
 @RequestMapping("/customer")
 public class CustomerController {
@@ -37,7 +39,16 @@ public class CustomerController {
         System.out.println(customer.getFirstName() + " <- First Name of Customer");
         System.out.println(customer.getLastName() + " <- Last Name of Customer");
         System.out.println(customer.getFreePasses() + " <- number of free passes");
+        System.out.println(customer.getPostalCode() + " <- postal code");
 
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+
+        bindingResult.getModel().forEach((k,v) -> System.out.println("Key -> " + k +" , Value -> " + v));
+        System.out.println(bindingResult.getPropertyEditorRegistry().toString());
+        log.debug(bindingResult.toString());
         if (bindingResult.hasErrors()) {
             return "customer-form";
         } else {
